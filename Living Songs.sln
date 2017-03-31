@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{87652DE8-5DE1-4E73-10ED-A4C5F20F849F}") = "Living Songs", "Assembly-CSharp.csproj", "{A05DD635-1BA8-E020-5F4F-1A222870FF61}"
+EndProject
+Project("{87652DE8-5DE1-4E73-10ED-A4C5F20F849F}") = "Living Songs", "Assembly-CSharp-Editor.csproj", "{92A50F33-C41D-1E78-95F6-E76C4C0D42C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A05DD635-1BA8-E020-5F4F-1A222870FF61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A05DD635-1BA8-E020-5F4F-1A222870FF61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A05DD635-1BA8-E020-5F4F-1A222870FF61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A05DD635-1BA8-E020-5F4F-1A222870FF61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92A50F33-C41D-1E78-95F6-E76C4C0D42C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92A50F33-C41D-1E78-95F6-E76C4C0D42C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92A50F33-C41D-1E78-95F6-E76C4C0D42C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92A50F33-C41D-1E78-95F6-E76C4C0D42C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
