@@ -26,15 +26,9 @@ public class LivingSongController : MonoBehaviour {
 		//get reference to parent controller
 		lsControl = l;
 
-		//TODO generate this data via midi
-		lsControl.queueNextSquibble (new SquibbleData (new Vector3(1,1,1)));
-		lsControl.queueNextSquibble (new SquibbleData (new Vector3(2,2,1)));
-		lsControl.queueNextSquibble (new SquibbleData (new Vector3(3,3,1)));
-
 		// load source
 		source = Resources.Load("miditest") as TextAsset;
 		Debug.Log (source);
-
 
 		//initialize midi
 		int bpm = 120;
@@ -43,8 +37,9 @@ public class LivingSongController : MonoBehaviour {
 
 		// get start events
 		foreach (MidiEvent e in seq.Start ()) {
-			// Do something with a MidiEvent.
-			Debug.Log (e);
+			if (e.status == 144) { //note on event
+				createSquibble (e);
+			}
 		}
 
 		paramsSet = true;
@@ -64,17 +59,19 @@ public class LivingSongController : MonoBehaviour {
 				List<MidiEvent> events = seq.Advance (Time.deltaTime);
 				if (events != null) {
 					foreach (MidiEvent e in events) {
-					
 						// Do something with a MidiEvent.
-						Debug.Log (e);
+						if (e.status == 144) { //note on event
+							createSquibble (e);
+						}
 					}
 				}
 			}
 		}
 	}
 
-	public void createSquibble() {
-		// Squibble s = new Squibble(params);
-		// lsControl.queueNextSquibble(s);
+	public void createSquibble(MidiEvent e) {
+		float normalizedNoteChange = ((float) e.data1) - 60;
+		Vector3 pos = new Vector3(normalizedNoteChange,normalizedNoteChange,1);
+		lsControl.queueNextSquibble (new SquibbleData (pos));
 	}
 }

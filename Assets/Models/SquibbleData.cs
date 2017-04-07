@@ -22,6 +22,6 @@ public class SquibbleData {
 
 		// TODO abstract this
 		// TODO once fade is complete, destroy SquibbleData
-		g.GetComponent<basicCubeScript>().fade();
+		g.GetComponent<BasicCube>().fade();
 	}
 }
