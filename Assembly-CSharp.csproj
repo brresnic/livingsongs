@@ -51,6 +51,7 @@
      <Compile Include="Assets\Models\Edge.cs" />
      <Compile Include="Assets\Models\Node.cs" />
      <Compile Include="Assets\Models\World.cs" />
+     <Compile Include="Assets\PlanetGenerator.cs" />
      <Compile Include="Assets\sphereNoise.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />

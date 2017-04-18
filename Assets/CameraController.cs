@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿//=======================================================================
+// Ben Resnick, 2016
+//=======================================================================
+
+using System.Collections;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour {
@@ -13,32 +17,20 @@ public class CameraController : MonoBehaviour {
 	private Quaternion _lookRotation;
 	private Vector3 direction, normalizedDirection;
 
-	//	public GameObject selected;
-
-//	// Update is called once per frame
-//	void Update () {
-//		// Rotate the camera every frame so it keeps looking at the target 
-//		transform.LookAt(selected.transform);
-//	}
-
-
 	public void LookAt(Vector3 point) {
-		Debug.Log ("here");
-		Debug.Log (point);
 
 		//set params for the animation 					
 		time = 0f;
 		period = 2f;  // length of the animation
 		enabled = true;
 
-		//store the start and end values
+		// Store the start and end values
 		startRotation = transform.rotation; // find the vector pointing from our position to the target
 		distanceToNewPoint = (point - transform.position).magnitude;
-		normalizedDirection = (point - transform.position).normalized; // create the rotation we need to be in to look at the target
+		normalizedDirection = (point - transform.position).normalized; // create the rotation we need to look at the target
 		endRotation = Quaternion.LookRotation(normalizedDirection);
 		startPoint = transform.position;
 		this.endPoint = transform.position + normalizedDirection*(distanceToNewPoint * 0.7f);
-
 	}
 
 	void Update() {
@@ -49,15 +41,13 @@ public class CameraController : MonoBehaviour {
 				enabled = false;
 			}
 			else {
-				//rotate us over time according to speed until we are in the required rotation
+				// Rotate us over time according to speed until we are in the required rotation
 				transform.rotation = Quaternion.Slerp(startRotation, endRotation, time/period);
+				// Move over time towards the target position
 				transform.position = Vector3.Lerp (startPoint, endPoint, time/period);
 			}
 		}
 	}
-
-
-
 }
 
 

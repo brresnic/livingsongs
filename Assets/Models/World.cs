@@ -48,6 +48,7 @@ public class World {
 			Edge newEdge = new Edge (this, selectedNode, newNode);
 			newNode.In = newEdge;
 
+
 			if (i == num - 1)
 				selectedNode = newNode;
 		}

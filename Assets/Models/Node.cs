@@ -5,6 +5,7 @@
 
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System;
 
 public class Node {
@@ -12,7 +13,7 @@ public class Node {
 
 	World world;
 
-	public Edge Out;
+	public List<Edge> Outs;
 		
 	public Edge In;
 
@@ -26,7 +27,9 @@ public class Node {
 		this.Y = y;
 		this.Z = z;
 		this.In = _in;
-		this.Out = _out;
+		if (_out != null) {
+			this.Outs.Add(_out);
+		}
 		this.Position = new Vector3 (x, y, z);
 	}
 }

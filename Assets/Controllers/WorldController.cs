@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿//=======================================================================
+// Ben Resnick, 2016
+//=======================================================================
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -37,9 +41,9 @@ public class WorldController : MonoBehaviour {
 		// When user presses 1, 2, or 3
 		// choose one of the selected node's children 
 		// and point the camera towards it
-//		if (Input.GetKeyDown (KeyCode.Keypad0)) {
-//
-//		}
+		if (Input.GetKeyDown ("1")) {
+			Debug.Log ("1");
+		}
 	}
 
 	// create three new nodes 
@@ -57,9 +61,6 @@ public class WorldController : MonoBehaviour {
 				CreateGOEdge (world.nodes [i].In);
 			}
 		}
-		Debug.Log (world.SelectedNode.Position);
-		Debug.Log ("wc-camera");
-		Debug.Log (camera);
 		// set camera to look at the selected node
 		camera.LookAt (world.SelectedNode.Position);
 
