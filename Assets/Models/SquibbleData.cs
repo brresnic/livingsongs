@@ -19,9 +19,18 @@ public class SquibbleData {
 	public void setVisualRepresentation(GameObject g) {
 		visualRepresentation = g;
 		visualRepresentation.transform.position = pos;
+		// ((BasicCube) visualRepresentation).setData (this); // TODO fix this, no casting
 
 		// TODO abstract this
 		// TODO once fade is complete, destroy SquibbleData
 		g.GetComponent<BasicCube>().fade();
+		// g.GetComponent<BasicCube>().setData (this);
+	}
+
+
+	// TODO call this
+	public void destroy() {
+		// Object.Destroy (this);
+		// manage this in LivingSongsController
 	}
 }

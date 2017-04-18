@@ -55,4 +55,9 @@ public class LivingSongsController : MonoBehaviour {
 
 		// TODO: perform additional tracking based on Squibble type
 	}
+
+	// TODO remove dead squibble data
+	public void removeSquibble () {
+
+	}
 }

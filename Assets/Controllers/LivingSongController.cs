@@ -27,11 +27,11 @@ public class LivingSongController : MonoBehaviour {
 		lsControl = l;
 
 		// load source
-		source = Resources.Load("miditest") as TextAsset;
+		source = Resources.Load("oyster4d") as TextAsset;
 		Debug.Log (source);
 
 		//initialize midi
-		int bpm = 120;
+		int bpm = 165;
 		MidiFileContainer song = MidiFileLoader.Load (source.bytes); //midi song data
 		seq = new MidiTrackSequencer (song.tracks[0], song.division, bpm); //midi sequencer
 

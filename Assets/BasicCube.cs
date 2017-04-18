@@ -5,6 +5,7 @@ using UnityEngine;
 public class BasicCube : MonoBehaviour {
 
 	Animator anim;
+	SquibbleData data;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,19 @@ public class BasicCube : MonoBehaviour {
 	}
 
 	public void fade() {
-		Debug.Log ("switch state");
-		anim.SetBool("fading", true);
+		// Debug.Log ("switch state");
+		// anim.SetBool("fading", true);
+	}
+
+	public void destroy() {
+		// Debug.Log ("destroy");
+		if (data != null) {
+			data.destroy ();
+		}
+		Object.Destroy (gameObject);
+	}
+
+	public void setData(SquibbleData d) {
+		data = d;
 	}
 }
