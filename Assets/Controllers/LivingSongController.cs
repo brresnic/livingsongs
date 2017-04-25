@@ -70,7 +70,8 @@ public class LivingSongController : MonoBehaviour {
 	}
 
 	public void createSquibble(MidiEvent e) {
-		float normalizedNoteChange = ((float) e.data1) - 60;
+		float normalizedNoteChange = (((float) e.data1) - 60)/3;
+		Debug.Log (normalizedNoteChange);
 		Vector3 pos = new Vector3(normalizedNoteChange,normalizedNoteChange,1);
 		lsControl.queueNextSquibble (new SquibbleData (pos));
 	}
