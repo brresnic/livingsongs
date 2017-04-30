@@ -8,18 +8,24 @@ using UnityEngine;
 
 public class LivingSongsController : MonoBehaviour {
 
+	public SteamVR_TrackedObject controllerL;
+	public SteamVR_TrackedObject controllerR;
 
 	private Queue<SquibbleData> nextSquibbleDatas;
 	private List<SquibbleData> activeSquibbleDatas;
 	private LivingSongController currentSong;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+
+
 		nextSquibbleDatas = new Queue<SquibbleData>();
 		activeSquibbleDatas = new List<SquibbleData>();
+	}
+
+	void Start () {
 
 		//instantiate the default song
-
 		currentSong = gameObject.AddComponent<LivingSongController> ();
 		currentSong.setInitialParams (this);
 		currentSong.play();
@@ -34,6 +40,7 @@ public class LivingSongsController : MonoBehaviour {
 			instantiateSquibble(next); // Create a visual representation of the next Squibble
 			trackSquibble(next); // Track squibble data in order to update as appropriate
 		}
+
 	}
 
 	public void queueNextSquibble(SquibbleData d) {
@@ -46,6 +53,8 @@ public class LivingSongsController : MonoBehaviour {
 		//PLACEHOLDER: generates a cube
 		GameObject cube = (GameObject)Instantiate(Resources.Load("BasicCube"));
 		d.setVisualRepresentation(cube);
+		// Debug.Log (controllerL.transform.position);
+		d.updatePosition (controllerL.transform.position);
 	}
 
 	private void trackSquibble (SquibbleData d) {

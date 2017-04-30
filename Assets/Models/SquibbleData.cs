@@ -27,6 +27,10 @@ public class SquibbleData {
 		// g.GetComponent<BasicCube>().setData (this);
 	}
 
+	public void updatePosition(Vector3 _pos) {
+		pos = _pos;
+		visualRepresentation.transform.position = pos;
+	}
 
 	// TODO call this
 	public void destroy() {
