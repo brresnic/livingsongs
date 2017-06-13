@@ -1,4 +1,4 @@
-﻿//=======================================================================
+//=======================================================================
 // Ben Resnick, 2017
 //=======================================================================
 
@@ -13,7 +13,7 @@ public class LivingSongController : MonoBehaviour {
 	// private midi
 	// private sequencer
 	private LivingSongsController lsControl;
-	private MidiTrackSequencer seq; 
+	private MidiTrackSequencer seq;
 	private TextAsset source;
 	private bool paramsSet;
 
@@ -44,17 +44,17 @@ public class LivingSongController : MonoBehaviour {
 
 		paramsSet = true;
 	}
-	
+
 
 	public void play() {
 		// Start playing the midi
 	}
-		
+
 	void Update() {
 		if (paramsSet) {
 			if (seq.Playing) {
 
-				// returns a set of midi events which occurred between 
+				// returns a set of midi events which occurred between
 				// the previous frame and the current one
 				List<MidiEvent> events = seq.Advance (Time.deltaTime);
 				if (events != null) {
@@ -70,9 +70,36 @@ public class LivingSongController : MonoBehaviour {
 	}
 
 	public void createSquibble(MidiEvent e) {
-		float normalizedNoteChange = (((float) e.data1) - 60)/3;
-		Debug.Log (normalizedNoteChange);
-		Vector3 pos = new Vector3(normalizedNoteChange,normalizedNoteChange,1);
+		float normalizedNoteChange = (((float) e.data1) - 60);
+     // Debug.Log(normalizedNoteChange);
+
+
+		//Vector3 pos = new Vector3(normalizedNoteChange,normalizedNoteChange,1);
+    Vector3 pos = generateCirclePosition(normalizedNoteChange);
 		lsControl.queueNextSquibble (new SquibbleData (pos));
+
 	}
+
+
+
+   Vector3 generateCirclePosition(float n) {
+      int numObjects = 10;
+      Vector3 center = new Vector3(0,0,0);
+      float ang = (n % 10)/10 * 360;
+      float radius = 5;
+           // Debug.Log("dot");
+     // Debug.Log(ang);
+      Vector3 pos;
+      pos.x = center.x + radius * Mathf.Sin(ang * Mathf.Deg2Rad);
+      pos.y = center.y + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
+      pos.z = center.z;
+      Debug.Log(Mathf.Sin(ang * Mathf.Deg2Rad));
+      Debug.Log(Mathf.Cos(ang * Mathf.Deg2Rad));
+
+      return pos;
+      //Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center-pos);
+      //Instantiate(prefab, pos, rot);
+
+   }
+
 }

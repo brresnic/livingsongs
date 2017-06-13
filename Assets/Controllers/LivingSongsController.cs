@@ -1,4 +1,4 @@
-﻿//=======================================================================
+//=======================================================================
 // Ben Resnick, 2017
 //=======================================================================
 
@@ -54,7 +54,9 @@ public class LivingSongsController : MonoBehaviour {
 		GameObject cube = (GameObject)Instantiate(Resources.Load("BasicCube"));
 		d.setVisualRepresentation(cube);
 		// Debug.Log (controllerL.transform.position);
-		d.updatePosition (controllerL.transform.position);
+
+    //make things appear at controller's position
+		//d.updatePosition (controllerL.transform.position);
 	}
 
 	private void trackSquibble (SquibbleData d) {
