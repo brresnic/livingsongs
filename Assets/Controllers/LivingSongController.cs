@@ -85,14 +85,14 @@ public class LivingSongController : MonoBehaviour {
    Vector3 generateCirclePosition(float n) {
       int numObjects = 10;
       Vector3 center = new Vector3(0,0,0);
-      float ang = (n % 10)/10 * 360;
+      float ang = (n % 10)/10 * 180;
       float radius = 5;
            // Debug.Log("dot");
      // Debug.Log(ang);
       Vector3 pos;
-      pos.x = center.x + radius * Mathf.Sin(ang * Mathf.Deg2Rad);
-      pos.y = center.y + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
-      pos.z = center.z;
+      pos.z = center.z + radius * Mathf.Sin(ang * Mathf.Deg2Rad);
+      pos.x = center.x + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
+      pos.y = center.y;
       Debug.Log(Mathf.Sin(ang * Mathf.Deg2Rad));
       Debug.Log(Mathf.Cos(ang * Mathf.Deg2Rad));
 
