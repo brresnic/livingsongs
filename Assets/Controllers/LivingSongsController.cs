@@ -26,7 +26,7 @@ public class LivingSongsController : MonoBehaviour {
 	void Start () {
 
 		//instantiate the default song
-		currentSong = gameObject.AddComponent<LivingSongController> ();
+		currentSong = gameObject.AddComponent<LivingSongKimbra> ();
 		currentSong.setInitialParams (this);
 		currentSong.play();
 	}

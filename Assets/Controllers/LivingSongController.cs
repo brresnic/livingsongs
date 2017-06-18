@@ -12,7 +12,7 @@ public class LivingSongController : MonoBehaviour {
 
 	// private midi
 	// private sequencer
-	private LivingSongsController lsControl;
+	protected LivingSongsController lsControl;
 	private MidiTrackSequencer seq;
 	private TextAsset source;
 	private bool paramsSet;
@@ -27,11 +27,11 @@ public class LivingSongController : MonoBehaviour {
 		lsControl = l;
 
 		// load source
-		source = Resources.Load("oyster4d") as TextAsset;
+		source = Resources.Load("kimbra2") as TextAsset;
 		Debug.Log (source);
 
 		//initialize midi
-		int bpm = 165;
+		int bpm = 157;
 		MidiFileContainer song = MidiFileLoader.Load (source.bytes); //midi song data
 		seq = new MidiTrackSequencer (song.tracks[0], song.division, bpm); //midi sequencer
 
@@ -58,6 +58,7 @@ public class LivingSongController : MonoBehaviour {
 				// the previous frame and the current one
 				List<MidiEvent> events = seq.Advance (Time.deltaTime);
 				if (events != null) {
+          Debug.Log ("midi event!");
 					foreach (MidiEvent e in events) {
 						// Do something with a MidiEvent.
 						if (e.status == 144) { //note on event
@@ -82,7 +83,7 @@ public class LivingSongController : MonoBehaviour {
 
 
 
-   Vector3 generateCirclePosition(float n) {
+   protected Vector3 generateCirclePosition(float n) {
       int numObjects = 10;
       Vector3 center = new Vector3(0,0,0);
       float ang = (n % 10)/10 * 180;

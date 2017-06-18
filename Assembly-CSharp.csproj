@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\BasicCube.cs" />
      <Compile Include="Assets\Controllers\LivingSongController.cs" />
+     <Compile Include="Assets\Controllers\LivingSongKimbra.cs" />
      <Compile Include="Assets\Controllers\LivingSongsController.cs" />
      <Compile Include="Assets\Controllers\Smflite.cs" />
      <Compile Include="Assets\Models\SquibbleData.cs" />
