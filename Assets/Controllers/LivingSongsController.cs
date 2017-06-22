@@ -51,8 +51,8 @@ public class LivingSongsController : MonoBehaviour {
 		// TODO: create the corresponding GO as appropriate
 
 		//PLACEHOLDER: generates a cube
-		GameObject cube = (GameObject)Instantiate(Resources.Load("BasicCube"));
-		d.setVisualRepresentation(cube);
+		// GameObject cube = (GameObject)Instantiate(Resources.Load("BasicCube"));
+		// d.setVisualRepresentation(cube);
 		// Debug.Log (controllerL.transform.position);
 
     //make things appear at controller's position
